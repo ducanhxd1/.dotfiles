@@ -27,6 +27,8 @@ vim.pack.add({
 	{ src = "https://github.com/mrcjkb/rustaceanvim" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/folke/trouble.nvim" },
+	{ src = 'https://github.com/nvim-tree/nvim-web-devicons' },
+	{ src = 'https://github.com/nvim-lualine/lualine.nvim' },
 
 })
 
@@ -101,7 +103,7 @@ wk.add({
 })
 wk.add({
 	{ "<leader>c",  group = "Code" },
-	{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action",    mode = { "n", "v" } },
+	{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action",     mode = { "n", "v" } },
 	{ "<leader>cr", vim.lsp.buf.rename,      desc = "Rename Symbol" },
 	{ "gd",         vim.lsp.buf.definition,  desc = "Go to Definition" },
 	{ "gr",         vim.lsp.buf.references,  desc = "Show References" },
@@ -121,7 +123,9 @@ require("gitsigns").setup({
 require("mini.pick").setup()
 require("mini.pairs").setup()
 require("mini.surround").setup()
-require("mini.statusline").setup()
+-- require("mini.statusline").setup()
+
+require("lualine").setup()
 
 local function pack_clean()
 	local active_plugins = {}
@@ -159,7 +163,7 @@ require("blink.cmp").setup({
 		implementation = "prefer_rust",
 		prebuilt_binaries = { force_version = "v*", download = true }
 	},
-	signature = { enabled =  true },
+	signature = { enabled = true },
 	completion = {
 		documentation = { auto_show = true },
 		menu = { auto_show = true },
